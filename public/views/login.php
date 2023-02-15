@@ -32,7 +32,7 @@
         <input name="password" type="password" placeholder="password">
         <input name="repeate_password" type="password" placeholder="repeate password">
         <div class="privacy_policy_div">
-            <input type="checkbox" id="privacy_policy_box" name="privacy_policy_checkbox" value="Accept">
+            <input type="checkbox" id="privacy_policy_box" name="privacy_policy_checkbox" value="V">
             <label id="policy_label" for="privacy_policy_box"> I read and accepted <a href="https://google.com"><u>privacy
                         policy</u></a></label><br>
         </div>
