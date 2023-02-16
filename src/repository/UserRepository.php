@@ -22,7 +22,6 @@ class UserRepository extends Repository {
         $stmt->execute([$user->getUsername(), $user->getEmail(), $user->getPassword()]);
     }
 
-
     public function getUser(string $username_email) {
         $user = null;
         $emailRegex = '/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/';
@@ -48,6 +47,19 @@ class UserRepository extends Repository {
             $user['password']
         );
     }
+
+    public function getId(string $email) {
+        $stmt = $this->database->connect()->prepare('SELECT user_id FROM public.user WHERE email = :email');
+        $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+        $stmt->execute();
+        $userId = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if (!$userId) {
+            return null;
+        }
+        return $userId['user_id'];
+    }
+
 
     /*
 

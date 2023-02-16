@@ -28,15 +28,13 @@ class SecurityController extends AppController {
             return $this->render('login', ['login_messages' => ['Wrong password!']]);
         }
 
-        //$cookie_name = "user_id";
-        //$cookie_value = $this->encryptIt($userRepository->getId($user->getEmail()));
 
-        //setcookie($cookie_name, $cookie_value, 0, "/");
+        $cookie_name = "user_id";
+        $cookie_value = $this->encryptIt($userRepository->getId($user->getEmail()));
+        setcookie($cookie_name, $cookie_value, 0, "/");
 
-        //$cookie_name = "register_data_input";
-        //$cookie_value = 1;
-        //setcookie($cookie_name, $cookie_value, 0, "/");
-        return $this->render('mainpage');
+        $url = "http://$_SERVER[HTTP_HOST]";
+        header("Location: {$url}/mainpage");
     }
 
     public function register()
@@ -78,12 +76,16 @@ class SecurityController extends AppController {
         $userRepository = new UserRepository();
         $userRepository->addUser($user);
 
-        $cookie_name = "user_id";
-        $cookie_value = $this->encryptIt($userRepository->getId($user->getEmail()));
-        setcookie($cookie_name, $cookie_value, 0, "/");
-        //return $this->render('index');
+        //$cookie_name = "user_id";
+        //$cookie_value = $this->encryptIt($userRepository->getId($user->getEmail()));
+        //setcookie($cookie_name, $cookie_value, 0, "/");
+
         return $this->render('login', ['signin_messages' => ['Your account has been created!']]);
     }
 
+    private function encryptIt(string $x): string
+    {
+        return strval(openssl_encrypt($x, "AES-128-CTR", "GeeksforGeeks", 0, '1234567891011121'));
+    }
 
 }
