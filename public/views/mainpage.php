@@ -4,11 +4,7 @@
     <title>FlashCardsApp</title>
 </head>
 <body>
-<header>
-    <a href="mainpage">
-        <img class="logo" src="public/img/logo.svg">
-    </a>
-</header>
+<?php include('header.php') ?>
 <main id="main_mainpage">
     <?php include('menubar.php') ?>
     <div id="flashcards_list">
@@ -24,7 +20,7 @@
             <div class="flashcard_list_elem">
                 <div class="flashcard_front"><? echo $flashcard->getFront(); ?></div>
                 <div class="flashcard_back"><? echo $flashcard->getBack(); ?></div>
-                <div class="flashcard_progress"><? echo $flashcard->getProgress(); ?></div>
+                <div class="flashcard_progress"><? echo $flashcard->getProgress(); ?>%</div>
                 <div class="flashcard_flag">
                     <?php if($flashcard->getFlag() == 0) : ?>
                         <svg width="16" height="22" viewBox="0 0 16 22" fill="black" xmlns="http://www.w3.org/2000/svg">

@@ -6,7 +6,13 @@ const deleteButton = document.querySelector("#delete");
 const card = document.querySelector(".card");
 const flashcard = JSON.parse(JSON.stringify(arr));
 
-let currIndex = null
+let currIndex = null;
+const start = Date.now();
+
+let againcounter = 0;
+let hardcounter = 0;
+let easycounter = 0;
+
 function showFlashcard() {
  let best = 0;
 
@@ -22,6 +28,7 @@ function showFlashcard() {
 }
 
 function again() {
+ againcounter++;
  let n = parseInt(flashcard[currIndex]['id']);
  fetch(`/againFlashcard/${n}`).then( function() {
   flashcard[currIndex]['progress'] = Math.floor(flashcard[currIndex]['progress']/2);
@@ -31,6 +38,7 @@ function again() {
 }
 
 function hard() {
+ hardcounter++;
  let n = parseInt(flashcard[currIndex]['id']);
  fetch(`/hardFlashcard/${n}`).then( function() {
   flashcard[currIndex]['progress'] = Math.floor((100-flashcard[currIndex]['progress']) / 8 ) + flashcard[currIndex]['progress'];
@@ -40,6 +48,7 @@ function hard() {
 }
 
 function easy() {
+ easycounter++;
  let n = parseInt(flashcard[currIndex]['id']);
  fetch(`/easyFlashcard/${n}`).then( function() {
   flashcard[currIndex]['progress'] = Math.floor((102-flashcard[currIndex]['progress']) / 3 ) + flashcard[currIndex]['progress'];
@@ -49,6 +58,14 @@ function easy() {
 }
 
 function stats() {
+ const duration = Date.now() - start;
+ let min = Math.floor(duration/60000);
+ let sec = Math.floor(duration/1000)%60;
+ alert(`time: ${min} min ${sec} sec
+ again: ${againcounter} cards
+ hard: ${hardcounter} cards
+ easy: ${easycounter} cards
+ `);
 
 }
 

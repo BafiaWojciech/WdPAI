@@ -16,11 +16,7 @@
 
 </head>
 <body>
-<header>
-    <a href="mainpage">
-        <img class="logo" src="public/img/logo.svg">
-    </a>
-</header>
+<?php include('header.php') ?>
 <main id="main_newcard">
     <?php include('menubar.php') ?>
     <div class="wrap">

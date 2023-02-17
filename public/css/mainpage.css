@@ -12,6 +12,7 @@ header {
     background: linear-gradient(180deg, #7BC0B0 0%, rgba(0, 0, 0, 0) 100%), #006C7C;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -65,22 +66,22 @@ main {
 }
 
 .flashcard_list_elem .flashcard_front {
-    background-color: #ffaeae;
+    padding-left: 5px;
     min-width:10%;
     width: 44%;
 }
 .flashcard_list_elem .flashcard_back {
-    background-color: #9595ff;
+    padding-left: 5px;
     min-width:10%;
     width: 44%;
 }
 .flashcard_list_elem .flashcard_progress {
-    background-color: #ff9494;
+    padding-left: 5px;
     min-width: 80px;
     width: 6%;
 }
 .flashcard_list_elem .flashcard_flag {
-    background-color: #bfbfff;
+    padding-left: 5px;
     min-width: 50px;
     width: 6%;
 }
@@ -135,9 +136,6 @@ main {
     width:80%;
 }
 
-.menu_bar_elem_img {
-    fill: red;
-}
 
 .difficulty_buttons {
     display: flex;
@@ -172,5 +170,4 @@ main {
     width: 40vh;
     justify-content: space-evenly;
 }
-
 
