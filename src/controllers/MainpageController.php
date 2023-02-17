@@ -1,21 +1,21 @@
 <?php
 
-require_once __DIR__.'/../repository/DeckRepository.php';
+require_once __DIR__.'/../repository/FlashcardRepository.php';
 require_once 'AppController.php';
 
 class MainpageController extends AppController {
 
-    private $decks;
+    private $flashcards;
 
     public function __constructor() {
         parent::__constructor();
-        $this->decks = new DeckRepository();
+        $this->flashcards = new FlashcardRepository();
     }
 
     public function mainpage() {
-        $this->decks = new DeckRepository();
-        $tmp = $this->decks->getDeckName();
-        $this->render('mainpage', ['decks'=>$tmp]);
+        $this->flashcards = new FlashcardRepository();
+        $tmp = $this->flashcards->getFlashcards();
+        $this->render('mainpage', ['flashcards'=>$tmp]);
     }
 
     public function newcard() {

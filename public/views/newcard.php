@@ -7,7 +7,7 @@
 <header>
     <img class="logo" src="public/img/logo.svg">
 </header>
-<main id="main_mainpage">
+<main id="main_newcard">
     <div class="menu_bar">
         <a href="newcard" class="menu_bar_elem" >
             <img class="menu_bar_elem_img" src="public/img/newcard.svg">
@@ -26,26 +26,18 @@
         </a>
         <p class="menu_bar_elem_text">learn cards<br>with flag</p>
     </div>
-    <div id="flashcards_list">
-
-        <div class="flashcard_list_elem">
-            <div class="flashcard_front"><b>Front</b></div>
-            <div class="flashcard_back"><b>Back</b></div>
-            <div class="flashcard_progress"><b>Progress</b></div>
-            <div class="flashcard_flag"><b>Flag</b></div>
-            <div class="flashcard_delete"><b>Delete</b></div>
-        </div>
-
-        <?php foreach ($flashcards as $flashcard): ?>
-            <div class="flashcard_list_elem">
-                <div class="flashcard_front"><? echo $flashcard->getFront(); ?></div>
-                <div class="flashcard_back"><? echo $flashcard->getBack(); ?></div>
-                <div class="flashcard_progress"><? echo $flashcard->getProgress(); ?></div>
-                <div class="flashcard_flag"><? echo $flashcard->getFlag(); ?></div>
-                <div class="flashcard_delete"><button>delete</button></div>
+    <form class="wrap" action="addnewcard" method="post">
+        <div class="card">
+            <div class="card_half">
+                <input name="front" class="newcard_text_field" type="text" placeholder="front">
             </div>
-        <?php endforeach;?>
+            <div class="card_splitter"></div>
+            <div class="card_half">
+                <input name="back" class="newcard_text_field" type="text" placeholder="back">
+            </div>
+        </div>
+        <button id="newcard_add_button">add</button>
+    </form>
 
-    </div>
 </main>
 </body>

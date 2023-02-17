@@ -60,11 +60,8 @@ class UserRepository extends Repository {
         return $userId['user_id'];
     }
 
-
-    /*
-
     public function getUserById(string $id_user) {
-        $stmt = $this->database->connect()->prepare('SELECT * FROM public.users WHERE id_user = :id_user');
+        $stmt = $this->database->connect()->prepare('SELECT * FROM public.user WHERE user_id = :id_user');
         $stmt->bindParam(':id_user', $id_user, PDO::PARAM_STR);
         $stmt->execute();
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -80,6 +77,8 @@ class UserRepository extends Repository {
         );
     }
 
+    /*
+
     public function getEmail(string $id_user) {
         $stmt = $this->database->connect()->prepare('SELECT email FROM public.users WHERE id_user = :id_user');
         $stmt->bindParam(':id_user', $id_user, PDO::PARAM_STR);
@@ -90,5 +89,7 @@ class UserRepository extends Repository {
         }
         return $email['email'];
     }
+
+
     */
 }

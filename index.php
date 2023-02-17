@@ -13,6 +13,7 @@ Routing::get('learn', 'MainpageController');
 Routing::get('writing', 'MainpageController');
 Routing::get('learncardswithflag', 'MainpageController');
 
+Routing::post('addnewcard', 'CardController');
 Routing::post('login', 'SecurityController');
 Routing::post('register', 'SecurityController');
 

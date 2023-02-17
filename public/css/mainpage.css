@@ -1,0 +1,143 @@
+body {
+    margin:0;
+    box-sizing: border-box;
+    display:flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    width: 100vw;
+    height: 80px;
+    background: linear-gradient(180deg, #7BC0B0 0%, rgba(0, 0, 0, 0) 100%), #006C7C;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#main_mainpage {
+    flex:1;
+    background-color: #E0FDFF;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+}
+
+.logo {
+    max-height: 60px;
+    margin-left: 10px;
+}
+
+.menu_bar {
+    background-color: #b6dde1;
+    width: 80px;
+    min-width:80px;
+    padding: 5px;
+}
+
+.menu_bar a{
+    display: flex;
+    justify-content: center;
+}
+
+.menu_bar p{
+    margin-top: 5px;
+    display: flex;
+    justify-content: center;
+}
+
+#flashcards_list {
+    display: flex;
+    flex-direction:column;
+    width:100%;
+}
+
+.flashcard_list_elem {
+    display:flex;
+    flex-direction: row;
+}
+
+.flashcard_list_elem div {
+    margin: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.flashcard_list_elem .flashcard_front {
+    background-color: #ffaeae;
+    min-width:10%;
+    width: 44%;
+}
+.flashcard_list_elem .flashcard_back {
+    background-color: #9595ff;
+    min-width:10%;
+    width: 44%;
+}
+.flashcard_list_elem .flashcard_progress {
+    background-color: #ff9494;
+    min-width: 80px;
+    width: 6%;
+}
+.flashcard_list_elem .flashcard_flag {
+    background-color: #bfbfff;
+    min-width: 50px;
+    width: 6%;
+}
+.flashcard_list_elem .flashcard_delete {
+    background-color: #bfbfff;
+    min-width: 50px;
+    width: 6%;
+}
+
+
+#main_newcard {
+    flex:1;
+    background-color: #E0FDFF;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+}
+
+.wrap {
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    width:100%;
+}
+
+
+
+.card {
+    display: flex;
+    padding: 20px;
+    margin: 5px;
+    width: 40vh;
+    height:60vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-color: white;
+    border:5px solid black;
+    border-radius: 50px;
+}
+
+.card input{
+    margin: 30px;
+}
+
+.card .card_half {
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card_splitter {
+    height:5px;
+    border-radius: 5px;
+    background-color: black;
+    width:80%;
+}

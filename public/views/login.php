@@ -7,7 +7,7 @@
 <header>
     <img class="logo" src="public/img/logo.svg">
 </header>
-<main>
+<main id="main_login">
     <form class="login" action="login" method="post">
         <input name="username_email" type="text" placeholder="username/email">
         <input name="password" type="password" placeholder="password">
@@ -26,12 +26,12 @@
         <span class="or">OR</span>
         <hr>
     </div>
-    <form class="register" action="register" method="post">
+    <form class="login" action="register" method="post">
         <input name="username" type="text" placeholder="username">
         <input name="email" type="text" placeholder="email">
         <input name="password" type="password" placeholder="password">
         <input name="repeate_password" type="password" placeholder="repeate password">
-        <div class="privacy_policy_div">
+        <div id="privacy_policy_div">
             <input type="checkbox" id="privacy_policy_box" name="privacy_policy_checkbox" value="V">
             <label id="policy_label" for="privacy_policy_box"> I read and accepted <a href="https://google.com"><u>privacy
                         policy</u></a></label><br>
