@@ -43,6 +43,12 @@ class CardController extends AppController {
         http_response_code(200);
     }
 
+    public function deleteCard($id) {
+        $repo = new FlashcardRepository();
+        $repo->deleteCard($id);
+        http_response_code(200);
+    }
+
     private function decryptIt($x) {
         return openssl_decrypt($x, "AES-128-CTR", "GeeksforGeeks", 0, '1234567891011121');
     }

@@ -60,6 +60,13 @@ class FlashcardRepository extends Repository {
         $stmt->execute();
     }
 
+    public function deleteCard($id) {
+        $stmt = $this->database->connect()->prepare('
+           DELETE FROM flashcard WHERE flashcard_id = :id');
+        $stmt->bindParam(":id", $id, PDO::PARAM_INT);
+        $stmt->execute();
+    }
+
     public function changeFlag($id) {
         $stmt = $this->database->connect()->prepare('
            UPDATE flashcard SET flag = ABS(flag - 1) WHERE flashcard_id = :id');

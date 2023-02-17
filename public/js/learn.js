@@ -1,57 +1,83 @@
 const againButton = document.querySelector("#button_again");
 const hardButton = document.querySelector("#button_hard");
 const easyButton = document.querySelector("#button_easy");
-
+const statsButton = document.querySelector("#stats");
+const deleteButton = document.querySelector("#delete");
+const card = document.querySelector(".card");
 const flashcard = JSON.parse(JSON.stringify(arr));
 
-let curr = null;
+let currIndex = null
 function showFlashcard() {
- let best = flashcard[0];
+ let best = 0;
 
  for(let i=1; i<flashcard.length; ++i) {
-  if (curr !== flashcard[i]) {
-   if (best['progress'] > flashcard[i]['progress'])
-    best = flashcard[i];
+  if (currIndex !== i) {
+   if (flashcard[best]['progress'] > flashcard[i]['progress'])
+    best = i;
   }
  }
- curr = best;
- document.getElementById("front").innerHTML = curr['front'];
- document.getElementById("back").innerHTML = curr['back'];
+ currIndex = best;
+ document.getElementById("front").innerHTML = flashcard[currIndex]['front'];
+ document.getElementById("back").innerHTML = '';
 }
 
 function again() {
- let n = parseInt(curr['id']);
+ let n = parseInt(flashcard[currIndex]['id']);
  fetch(`/againFlashcard/${n}`).then( function() {
-  curr['progress'] = Math.floor(curr['progress']/2);
+  flashcard[currIndex]['progress'] = Math.floor(flashcard[currIndex]['progress']/2);
   showFlashcard();
-     }
+ }
  )
-
 }
 
 function hard() {
- let n = parseInt(curr['id']);
+ let n = parseInt(flashcard[currIndex]['id']);
  fetch(`/hardFlashcard/${n}`).then( function() {
-  curr['progress'] = Math.floor((100-curr['progress']) / 8 ) + curr['progress'];
+  flashcard[currIndex]['progress'] = Math.floor((100-flashcard[currIndex]['progress']) / 8 ) + flashcard[currIndex]['progress'];
+  showFlashcard();
+     }
+ )
+}
+
+function easy() {
+ let n = parseInt(flashcard[currIndex]['id']);
+ fetch(`/easyFlashcard/${n}`).then( function() {
+  flashcard[currIndex]['progress'] = Math.floor((102-flashcard[currIndex]['progress']) / 3 ) + flashcard[currIndex]['progress'];
+  showFlashcard();
+     }
+ )
+}
+
+function stats() {
+
+}
+
+function trash() {
+
+ let n = parseInt(flashcard[currIndex]['id']);
+ fetch(`/deleteCard/${n}`).then( function() {
+  currIndex = null;
+  flashcard.splice(currIndex, 1);
+  document.getElementById("front").innerHTML = '';
+  document.getElementById("back").innerHTML = '';
   showFlashcard();
      }
  )
 
 }
 
-function easy() {
- let n = parseInt(curr['id']);
- fetch(`/easyFlashcard/${n}`).then( function() {
-  curr['progress'] = Math.floor((102-curr['progress']) / 3 ) + curr['progress'];
-  showFlashcard();
-     }
- )
+function showback() {
+ document.getElementById("back").innerHTML = flashcard[currIndex]['back'];
 }
 
 againButton.addEventListener("click", again);
 hardButton.addEventListener("click", hard);
 easyButton.addEventListener("click", easy);
 
+statsButton.addEventListener("click", stats);
+deleteButton.addEventListener("click", trash);
+
+card.addEventListener("click", showback);
 showFlashcard();
 
 

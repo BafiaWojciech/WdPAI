@@ -21,4 +21,8 @@ Routing::get('againFlashcard', 'CardController');
 Routing::get('hardFlashcard', 'CardController');
 Routing::get('easyFlashcard', 'CardController');
 Routing::get('changeFlag', 'CardController');
+
+Routing::get('finishLearning', 'CardController');
+Routing::get('deleteCard', 'CardController');
+Routing::get('changeFlag', 'CardController');
 Routing::run($path);

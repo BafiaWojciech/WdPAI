@@ -166,3 +166,11 @@ main {
     color: #4cb640;
 }
 
+.control_buttons {
+    display: flex;
+    flex-direction: row;
+    width: 40vh;
+    justify-content: space-evenly;
+}
+
+

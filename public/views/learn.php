@@ -22,27 +22,17 @@
     </a>
 </header>
 <main id="main_newcard">
-    <div class="menu_bar">
-        <a href="newcard" class="menu_bar_elem" >
-            <img class="menu_bar_elem_img" src="public/img/newcard.svg">
-        </a>
-        <p class="menu_bar_elem_text">new card</p>
-        <a href="learn" class="menu_bar_elem" >
-            <img class="menu_bar_elem_img" src="public/img/learn.svg">
-        </a>
-        <p class="menu_bar_elem_text">learn</p>
-        <a href="writing" class="menu_bar_elem" >
-            <img class="menu_bar_elem_img" src="public/img/writing.svg">
-        </a>
-        <p class="menu_bar_elem_text">writing</p>
-        <a href="learncardswithflag" class="menu_bar_elem" >
-            <img class="menu_bar_elem_img" src="public/img/learnwithflag.svg">
-        </a>
-        <p class="menu_bar_elem_text">learn cards<br>with flag</p>
-    </div>
-
+    <?php include('menubar.php') ?>
     <div class="wrap">
-        <div class="card" onclick="showback()">
+        <div class="control_buttons">
+            <div id="stats">
+                <img src="public/img/stats.svg">
+            </div>
+            <div id="delete">
+                <img src="public/img/trash.svg">
+            </div>
+        </div>
+        <div class="card">
             <div class="card_half">
                 <div id="front"></div>
             </div>
