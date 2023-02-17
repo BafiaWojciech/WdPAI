@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <head>
     <link rel="stylesheet" type="text/css" href="public/css/mainpage.css">
-    <title>Login page</title>
+    <title>FlashCardsApp</title>
 </head>
 <body>
 <header>
-    <img class="logo" src="public/img/logo.svg">
+    <a href="mainpage">
+        <img class="logo" src="public/img/logo.svg">
+    </a>
 </header>
 <main id="main_newcard">
     <div class="menu_bar">

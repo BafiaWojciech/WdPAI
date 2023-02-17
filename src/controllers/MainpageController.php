@@ -23,7 +23,9 @@ class MainpageController extends AppController {
     }
 
     public function learn() {
-        $this->render('learn');
+        $this->flashcards = new FlashcardRepository();
+        $tmp = $this->flashcards->getFlashcards();
+        $this->render('learn', ['flashcards'=>$tmp]);
     }
 
     public function writing() {

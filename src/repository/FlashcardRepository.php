@@ -21,6 +21,7 @@ class FlashcardRepository extends Repository {
 
         foreach ($flashcards as $flashcard) {
             $result[] = new Flashcard(
+                $flashcard["flashcard_id"],
                 $flashcard["front"],
                 $flashcard["back"],
                 $flashcard["progress"],
@@ -31,12 +32,47 @@ class FlashcardRepository extends Repository {
     }
 
     public function addFlashcard(Flashcard $flashcard, $user_id) {
-
         $stmt = $this->database->connect()->prepare('
             INSERT INTO flashcard (front, back, progress, flag, user_id)
             VALUES (?,?,?,?,?)
             ');
         $stmt->execute([$flashcard->getFront(), $flashcard->getBack(), $flashcard->getProgress(), $flashcard->getFlag(), $user_id]);
+    }
+
+    public function againFlashcard($id) {
+        $stmt = $this->database->connect()->prepare('
+            UPDATE flashcard SET progress = progress / 2 WHERE flashcard_id = :id');
+        $stmt->bindParam(":id", $id, PDO::PARAM_INT);
+        $stmt->execute();
+    }
+
+    public function hardFlashcard($id) {
+        $stmt = $this->database->connect()->prepare('
+            UPDATE flashcard SET progress = (100 - progress) / 8 + progress WHERE flashcard_id = :id');
+        $stmt->bindParam(":id", $id, PDO::PARAM_INT);
+        $stmt->execute();
+    }
+
+    public function easyFlashcard($id) {
+        $stmt = $this->database->connect()->prepare('
+            UPDATE flashcard SET progress = (102 - progress) / 3 + progress WHERE flashcard_id = :id');
+        $stmt->bindParam(":id", $id, PDO::PARAM_INT);
+        $stmt->execute();
+    }
+
+    public function changeFlag($id) {
+        $stmt = $this->database->connect()->prepare('
+           UPDATE flashcard SET flag = ABS(flag - 1) WHERE flashcard_id = :id');
+        $stmt->bindParam(":id", $id, PDO::PARAM_INT);
+        $stmt->execute();
+    }
+
+    public function getNextId() {
+        $stmt = $this->database->connect()->prepare(
+            'SELECT last_value + 1 FROM flashcard_flashcard_id_seq'
+        );
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
     private function decryptIt($x) {

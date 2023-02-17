@@ -3,12 +3,14 @@
 namespace models;
 
 class Flashcard {
+    private $id;
     private $front;
     private $back;
     private $progress;
     private $flag;
 
-    public function __construct($front, $back, $progress, $flag) {
+    public function __construct($id, $front, $back, $progress, $flag) {
+        $this->id = $id;
         $this->front = $front;
         $this->back = $back;
         $this->progress = $progress;
@@ -16,6 +18,10 @@ class Flashcard {
     }
 
     //getters
+    public function getId() {
+        return $this->id;
+    }
+
     public function getFront() {
         return $this->front;
     }
@@ -33,6 +39,10 @@ class Flashcard {
     }
 
     //setters
+    public function setId($id) {
+        $this->id = $id;
+    }
+
     public function setFront($front) {
         $this->front = $front;
     }
@@ -48,6 +58,8 @@ class Flashcard {
     public function setFlag($flag) {
         $this->flag = $flag;
     }
+
+
 
 
 }

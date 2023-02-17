@@ -17,4 +17,8 @@ Routing::post('addnewcard', 'CardController');
 Routing::post('login', 'SecurityController');
 Routing::post('register', 'SecurityController');
 
+Routing::get('againFlashcard', 'CardController');
+Routing::get('hardFlashcard', 'CardController');
+Routing::get('easyFlashcard', 'CardController');
+Routing::get('changeFlag', 'CardController');
 Routing::run($path);

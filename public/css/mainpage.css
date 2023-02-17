@@ -15,7 +15,7 @@ header {
     align-items: center;
 }
 
-#main_mainpage {
+main {
     flex:1;
     background-color: #E0FDFF;
     width: 100vw;
@@ -84,11 +84,6 @@ header {
     min-width: 50px;
     width: 6%;
 }
-.flashcard_list_elem .flashcard_delete {
-    background-color: #bfbfff;
-    min-width: 50px;
-    width: 6%;
-}
 
 
 #main_newcard {
@@ -106,8 +101,6 @@ header {
     align-items: center;
     width:100%;
 }
-
-
 
 .card {
     display: flex;
@@ -141,3 +134,35 @@ header {
     background-color: black;
     width:80%;
 }
+
+.menu_bar_elem_img {
+    fill: red;
+}
+
+.difficulty_buttons {
+    display: flex;
+    flex-direction: row;
+}
+
+.difficulty_buttons button {
+    width: 10vh;
+    height: 6vh;
+    margin: 1vh;
+
+    background-color: white;
+    border:3px solid black;
+    border-radius: 10px;
+}
+
+.difficulty_buttons #button_again {
+    color: #ff6b6b;
+}
+
+.difficulty_buttons #button_hard {
+    color: #ff9f57;
+}
+
+.difficulty_buttons #button_easy {
+    color: #4cb640;
+}
+
