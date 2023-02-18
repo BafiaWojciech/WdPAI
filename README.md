@@ -1,4 +1,3 @@
-
 # FlashcardsApp
 
 Projekt realizowany w ramach przedmiotu WdPAI.
@@ -31,12 +30,12 @@ Projekt nie jest skończony, posiada część funkcjonalności
 
 ## Zrzuty ekranu
 
-![App Screenshot] https://github.com/BafiaWojciech/WdPAI/tree/main/ss/login.png
+![Okno logowania i rejestracji](https://github.com/BafiaWojciech/WdPAI/tree/main/ss/login.png)
 
-![App Screenshot] https://github.com/BafiaWojciech/WdPAI/tree/main/ss/mainpage.png
+![Strona główna po zalogowaniu](https://github.com/BafiaWojciech/WdPAI/tree/main/ss/mainpage.png)
 
-![App Screenshot] https://github.com/BafiaWojciech/WdPAI/tree/main/ss/addcard.png
+![Okno dodawanie karty](https://github.com/BafiaWojciech/WdPAI/tree/main/ss/addcard.png)
 
-![App Screenshot] https://github.com/BafiaWojciech/WdPAI/tree/main/ss/learn1.png
+![Nauka fiszek](https://github.com/BafiaWojciech/WdPAI/tree/main/ss/learn1.png)
 
-![App Screenshot] https://github.com/BafiaWojciech/WdPAI/tree/main/ss/learn2.png
+![Nauka fiszek](https://github.com/BafiaWojciech/WdPAI/tree/main/ss/learn2.png)

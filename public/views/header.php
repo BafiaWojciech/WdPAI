@@ -6,7 +6,7 @@
         <a href="#" style="color:transparent;">
             <img class="myprofile" src="public/img/profile.svg">
         </a>
-        <a href="#" style="color:transparent;">
+        <a href="delete_cookie" style="color:transparent;">
             <img class="logout" src="public/img/logout.svg">
         </a>
     </div>

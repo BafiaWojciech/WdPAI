@@ -11,13 +11,18 @@ class FlashcardRepository extends Repository {
     }
 
     public function getFlashcards(): array {
+        if (!isset($_COOKIE["user_id"])) {
+            return [];
+        }
         $stmt = $this->database->connect()->prepare(
             'SELECT * FROM public.flashcard WHERE user_id = :user_id'
         );
+
+
         $stmt->bindParam(':user_id', $this->decryptIt($_COOKIE['user_id']), PDO::PARAM_STR);
         $stmt->execute();
         $flashcards = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        $result = [];
+
 
         foreach ($flashcards as $flashcard) {
             $result[] = new Flashcard(

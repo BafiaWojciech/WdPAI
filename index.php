@@ -25,4 +25,7 @@ Routing::get('changeFlag', 'CardController');
 Routing::get('finishLearning', 'CardController');
 Routing::get('deleteCard', 'CardController');
 Routing::get('changeFlag', 'CardController');
+
+Routing::get('delete_cookie', 'CookieController');
+
 Routing::run($path);

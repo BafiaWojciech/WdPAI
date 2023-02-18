@@ -1,3 +1,4 @@
+<?php include('user_cookie.php') ?>
 <!DOCTYPE html>
 <head>
     <link rel="stylesheet" type="text/css" href="public/css/mainpage.css">
